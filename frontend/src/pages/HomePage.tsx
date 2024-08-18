@@ -9,7 +9,7 @@ function HomePage() {
         },
         {
             menuItem: 'Diese Woche',
-            render: () => <TabPane attached={false}><CustomCard/></TabPane>,
+            render: () => <TabPane attached={false}></TabPane>,
         },
     ]
 
