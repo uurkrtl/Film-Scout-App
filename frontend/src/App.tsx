@@ -6,9 +6,7 @@ import Dashboard from "./layouts/Dashboard.tsx";
 function App() {
 
   return (
-    <>
-      <Dashboard/>
-    </>
+    <Dashboard/>
   )
 }
 
