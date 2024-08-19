@@ -49,11 +49,11 @@ function HomePage() {
     ]
 
     if (loading) {
-        return <div className={'container mt-3'}>
-            <div className={'spinner-border text-primary'}>
+        return <div className={'container'}>
+            <div className={'spinner-border text-primary mt-3'}>
                 <span className={'visually-hidden'}></span>
             </div>
-            <h5>Wird geledan...</h5>
+            <h5>Wird geladen...</h5>
         </div>;
     }
 

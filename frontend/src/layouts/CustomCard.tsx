@@ -26,7 +26,7 @@ function CustomCard({movies}: Readonly<{ movies: Movie[] }>) {
             <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-1">
                     {movies.map((movie) => (
-                        <div className="col mt-3">
+                        <div className="col mt-3" key={movie.id}>
                             <Card>
                                 <Image src={`${basePosterUrl}${movie.poster_path}`} wrapped
                                        ui={false}/>
