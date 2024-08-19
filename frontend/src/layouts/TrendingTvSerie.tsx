@@ -1,35 +1,33 @@
-import {TabPane, Tab} from 'semantic-ui-react'
-import CustomCard from "../layouts/CustomCard.tsx";
 import TheMovieDbService from "../services/TheMovieDbService.ts";
 import {useEffect, useState} from "react";
-import {Movie} from "../types/Movie.ts";
-import Popular from "../layouts/Popular.tsx";
-import TrendingTvSerie from "../layouts/TrendingTvSerie.tsx";
+import {Tab, TabPane} from "semantic-ui-react";
+import CustomTvSerieCard from "./CustomTvSerieCard.tsx";
+import {TvSerie} from "../types/TvSerie.ts";
 
-function HomePage() {
+function TrendingTvSerie() {
     const theMovieDbService = new TheMovieDbService();
-    const [trendingMoviesDay, setTrendingMoviesDay] = useState<Movie[]>([]);
-    const [trendingMoviesWeek, setTrendingMoviesWeek] = useState<Movie[]>([]);
+    const [trendingTvSeriesDay, setTrendingTvSeriesDay] = useState<TvSerie[]>([]);
+    const [trendingTvSeriesWeek, setTrendingTvSeriesWeek] = useState<TvSerie[]>([]);
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
-        theMovieDbService.getTrendingMovies('DAY')
+        theMovieDbService.getTrendingTvSeries('DAY')
             .then((response) => {
-                setTrendingMoviesDay(response.data);
+                setTrendingTvSeriesDay(response.data);
                 setLoading(false);
                 setErrorMessage('');
-        })
+            })
             .catch(error => {
-            setErrorMessage(`Error while fetching movies: ${error.message}`);
-            setLoading(false);
-        });
+                setErrorMessage(`Error while fetching movies: ${error.message}`);
+                setLoading(false);
+            });
     }, []);
 
     useEffect(() => {
-        theMovieDbService.getTrendingMovies('WEEK')
+        theMovieDbService.getTrendingTvSeries('WEEK')
             .then((response) => {
-                setTrendingMoviesWeek(response.data);
+                setTrendingTvSeriesWeek(response.data);
                 setLoading(false);
                 setErrorMessage('');
             })
@@ -42,11 +40,11 @@ function HomePage() {
     const panes = [
         {
             menuItem: 'Heute',
-            render: () => <TabPane attached={false}><CustomCard movies={trendingMoviesDay}/></TabPane>,
+            render: () => <TabPane attached={false}><CustomTvSerieCard tvSeries={trendingTvSeriesDay}/></TabPane>,
         },
         {
             menuItem: 'Diese Woche',
-            render: () => <TabPane attached={false}><CustomCard movies={trendingMoviesWeek}/></TabPane>,
+            render: () => <TabPane attached={false}><CustomTvSerieCard tvSeries={trendingTvSeriesWeek}/></TabPane>,
         },
     ]
 
@@ -61,7 +59,7 @@ function HomePage() {
 
     return (
         <div className='py-5 text-center container'>
-            <h3>Trendfilme</h3>
+            <h3>Trendserien</h3>
             <Tab menu={{secondary: true, pointing: true}} panes={panes}/>
 
             {errorMessage && (
@@ -69,11 +67,8 @@ function HomePage() {
                     {errorMessage}
                 </div>
             )}
-
-            {<Popular />}
-            {<TrendingTvSerie />}
         </div>
     );
 }
 
-export default HomePage;
+export default TrendingTvSerie;

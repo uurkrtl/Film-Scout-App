@@ -2,6 +2,7 @@ package net.filmscout.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
 import net.filmscout.backend.models.Movie;
+import net.filmscout.backend.models.TvSerie;
 import net.filmscout.backend.models.enums.TimeWindow;
 import net.filmscout.backend.services.abstracts.TheMovieDbService;
 import org.springframework.web.bind.annotation.*;
@@ -17,5 +18,15 @@ public class TheMovieDbController {
     @GetMapping("/trending-movies/{timeWindow}")
     public List<Movie> getTrendingMovies(@PathVariable String timeWindow) {
         return theMovieDbService.getTrendingMovies(TimeWindow.valueOf(timeWindow));
+    }
+
+    @GetMapping("/popular-movies")
+    public List<Movie> getPopularMovies() {
+        return theMovieDbService.getPopularMovies();
+    }
+
+    @GetMapping("/trending-tv-series/{timeWindow}")
+    public List<TvSerie> getTrendingTvSeries(@PathVariable String timeWindow) {
+        return theMovieDbService.getTrendingTvSeries(TimeWindow.valueOf(timeWindow));
     }
 }
