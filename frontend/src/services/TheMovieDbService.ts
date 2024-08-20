@@ -12,4 +12,8 @@ export default class TheMovieDbService {
     getTrendingTvSeries(timeWindow: string) {
         return axios.get(`api/themoviedb/trending-tv-series/${timeWindow}`);
     }
+
+    getPopularTvSeries() {
+        return axios.get('api/themoviedb/popular-tv-series');
+    }
 }

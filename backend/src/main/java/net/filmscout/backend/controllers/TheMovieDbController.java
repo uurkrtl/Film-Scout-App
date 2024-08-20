@@ -29,4 +29,9 @@ public class TheMovieDbController {
     public List<TvSerie> getTrendingTvSeries(@PathVariable String timeWindow) {
         return theMovieDbService.getTrendingTvSeries(TimeWindow.valueOf(timeWindow));
     }
+
+    @GetMapping("/popular-tv-series")
+    public List<TvSerie> getPopularTvSeries() {
+        return theMovieDbService.getPopularTvSeries();
+    }
 }
