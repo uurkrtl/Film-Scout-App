@@ -1,13 +1,18 @@
 import {Route, Routes} from "react-router-dom";
 import HomePage from "../pages/HomePage.tsx";
+import Navbar from "./Navbar.tsx";
 
 function Dashboard() {
     return (
-        <div>
-            <Routes>
-                <Route path='/' element={<HomePage/>}/>
-            </Routes>
-        </div>
+        <>
+            <Navbar/>
+            <div className='mt-5'>
+                <Routes>
+                    <Route path='/' element={<HomePage/>}/>
+                </Routes>
+            </div>
+        </>
+
     );
 }
 
