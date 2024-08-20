@@ -3,11 +3,14 @@ import {useEffect, useState} from "react";
 import {Movie} from "../types/Movie.ts";
 import {Tab, TabPane} from "semantic-ui-react";
 import CustomCard from "./CustomCard.tsx";
+import CustomTvSerieCard from "./CustomTvSerieCard.tsx";
+import {TvSerie} from "../types/TvSerie.ts";
 
 
 function Popular() {
     const theMovieDbService = new TheMovieDbService();
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
+    const [popularTvSeries, setPopularTvSeries] = useState<TvSerie[]>([]);
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState<string>('');
 
@@ -24,6 +27,19 @@ function Popular() {
             });
     }, []);
 
+    useEffect(() => {
+        theMovieDbService.getPopularTvSeries()
+            .then((response) => {
+                setPopularTvSeries(response.data);
+                setLoading(false);
+                setErrorMessage('');
+            })
+            .catch(error => {
+                setErrorMessage(`Error while fetching series: ${error.message}`);
+                setLoading(false);
+            });
+    }, []);
+
     const panes = [
         {
             menuItem: 'Filme',
@@ -31,7 +47,7 @@ function Popular() {
         },
         {
             menuItem: 'Serien',
-            render: () => <TabPane attached={false}></TabPane>,
+            render: () => <TabPane attached={false}><CustomTvSerieCard tvSeries={popularTvSeries}/></TabPane>,
         },
     ]
 

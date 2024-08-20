@@ -10,4 +10,5 @@ public interface TheMovieDbService {
     List<Movie> getTrendingMovies(TimeWindow timeWindow);
     List<Movie> getPopularMovies();
     List<TvSerie> getTrendingTvSeries(TimeWindow timeWindow);
+    List<TvSerie> getPopularTvSeries();
 }

@@ -32,4 +32,10 @@ public class TheMovieDbManager implements TheMovieDbService {
         final String url = String.format("/trending/tv/%s?language=de-DE", timeWindow.toString().toLowerCase());
         return theMovieDbBusinessRule.fetchTvSerieList(url).stream().limit(8).toList();
     }
+
+    @Override
+    public List<TvSerie> getPopularTvSeries() {
+        final String url = "/tv/popular?language=de-DE&page=1";
+        return theMovieDbBusinessRule.fetchTvSerieList(url).stream().limit(8).toList();
+    }
 }
