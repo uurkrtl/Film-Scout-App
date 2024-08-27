@@ -14,7 +14,7 @@ function HomePage() {
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
-        theMovieDbService.getTrendingMovies('DAY')
+        theMovieDbService.getTrendingMovies('DAY', 8)
             .then((response) => {
                 setTrendingMoviesDay(response.data);
                 setLoading(false);
@@ -27,7 +27,7 @@ function HomePage() {
     }, []);
 
     useEffect(() => {
-        theMovieDbService.getTrendingMovies('WEEK')
+        theMovieDbService.getTrendingMovies('WEEK', 8)
             .then((response) => {
                 setTrendingMoviesWeek(response.data);
                 setLoading(false);

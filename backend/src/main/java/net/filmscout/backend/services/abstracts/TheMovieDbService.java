@@ -7,8 +7,8 @@ import net.filmscout.backend.models.enums.TimeWindow;
 import java.util.List;
 
 public interface TheMovieDbService {
-    List<Movie> getTrendingMovies(TimeWindow timeWindow);
-    List<Movie> getPopularMovies();
-    List<TvSerie> getTrendingTvSeries(TimeWindow timeWindow);
-    List<TvSerie> getPopularTvSeries();
+    List<Movie> getTrendingMovies(TimeWindow timeWindow, Integer limit);
+    List<Movie> getPopularMovies(Integer limit);
+    List<TvSerie> getTrendingTvSeries(TimeWindow timeWindow, Integer limit);
+    List<TvSerie> getPopularTvSeries(Integer limit);
 }

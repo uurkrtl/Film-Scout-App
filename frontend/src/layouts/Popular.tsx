@@ -15,7 +15,7 @@ function Popular() {
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
-        theMovieDbService.getPopularMovies()
+        theMovieDbService.getPopularMovies(8)
             .then((response) => {
                 setPopularMovies(response.data);
                 setLoading(false);
@@ -28,7 +28,7 @@ function Popular() {
     }, []);
 
     useEffect(() => {
-        theMovieDbService.getPopularTvSeries()
+        theMovieDbService.getPopularTvSeries(8)
             .then((response) => {
                 setPopularTvSeries(response.data);
                 setLoading(false);
