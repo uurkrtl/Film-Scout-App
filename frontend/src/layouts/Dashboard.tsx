@@ -1,6 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 import HomePage from "../pages/HomePage.tsx";
 import Navbar from "./Navbar.tsx";
+import Footer from "./Footer.tsx";
 
 function Dashboard() {
     return (
@@ -11,8 +12,8 @@ function Dashboard() {
                     <Route path='/' element={<HomePage/>}/>
                 </Routes>
             </div>
+            <Footer/>
         </>
-
     );
 }
 
