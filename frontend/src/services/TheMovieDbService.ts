@@ -1,19 +1,35 @@
 import axios from 'axios';
 
 export default class TheMovieDbService {
-    getTrendingMovies(timeWindow: string) {
-        return axios.get(`api/themoviedb/trending-movies/${timeWindow}`);
+    getTrendingMovies(timeWindow: string, limit = 8) {
+        return axios.get(`api/themoviedb/trending-movies/${timeWindow}`, {
+            params: {
+                limit: limit
+            }
+        });
     }
 
-    getPopularMovies() {
-        return axios.get('api/themoviedb/popular-movies');
+    getPopularMovies(limit = 8) {
+        return axios.get('api/themoviedb/popular-movies', {
+            params: {
+                limit: limit
+            }
+        });
     }
 
-    getTrendingTvSeries(timeWindow: string) {
-        return axios.get(`api/themoviedb/trending-tv-series/${timeWindow}`);
+    getTrendingTvSeries(timeWindow: string, limit = 8) {
+        return axios.get(`api/themoviedb/trending-tv-series/${timeWindow}`, {
+            params: {
+                limit: limit
+            }
+        });
     }
 
-    getPopularTvSeries() {
-        return axios.get('api/themoviedb/popular-tv-series');
+    getPopularTvSeries(limit = 8) {
+        return axios.get('api/themoviedb/popular-tv-series', {
+            params: {
+                limit: limit
+            }
+        });
     }
 }

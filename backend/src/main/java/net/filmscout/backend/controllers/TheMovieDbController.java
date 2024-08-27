@@ -16,22 +16,22 @@ public class TheMovieDbController {
     private final TheMovieDbService theMovieDbService;
 
     @GetMapping("/trending-movies/{timeWindow}")
-    public List<Movie> getTrendingMovies(@PathVariable String timeWindow) {
-        return theMovieDbService.getTrendingMovies(TimeWindow.valueOf(timeWindow));
+    public List<Movie> getTrendingMovies(@PathVariable String timeWindow, @RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getTrendingMovies(TimeWindow.valueOf(timeWindow), limit);
     }
 
     @GetMapping("/popular-movies")
-    public List<Movie> getPopularMovies() {
-        return theMovieDbService.getPopularMovies();
+    public List<Movie> getPopularMovies(@RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getPopularMovies(limit);
     }
 
     @GetMapping("/trending-tv-series/{timeWindow}")
-    public List<TvSerie> getTrendingTvSeries(@PathVariable String timeWindow) {
-        return theMovieDbService.getTrendingTvSeries(TimeWindow.valueOf(timeWindow));
+    public List<TvSerie> getTrendingTvSeries(@PathVariable String timeWindow, @RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getTrendingTvSeries(TimeWindow.valueOf(timeWindow), limit);
     }
 
     @GetMapping("/popular-tv-series")
-    public List<TvSerie> getPopularTvSeries() {
-        return theMovieDbService.getPopularTvSeries();
+    public List<TvSerie> getPopularTvSeries(@RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getPopularTvSeries(limit);
     }
 }

@@ -12,7 +12,7 @@ function TrendingTvSerie() {
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
-        theMovieDbService.getTrendingTvSeries('DAY')
+        theMovieDbService.getTrendingTvSeries('DAY', 8)
             .then((response) => {
                 setTrendingTvSeriesDay(response.data);
                 setLoading(false);
@@ -25,7 +25,7 @@ function TrendingTvSerie() {
     }, []);
 
     useEffect(() => {
-        theMovieDbService.getTrendingTvSeries('WEEK')
+        theMovieDbService.getTrendingTvSeries('WEEK', 8)
             .then((response) => {
                 setTrendingTvSeriesWeek(response.data);
                 setLoading(false);
