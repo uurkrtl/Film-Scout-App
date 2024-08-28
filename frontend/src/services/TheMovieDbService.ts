@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class TheMovieDbService {
     getTrendingMovies(timeWindow: string, limit = 8) {
-        return axios.get(`api/themoviedb/trending-movies/${timeWindow}`, {
+        return axios.get(`/api/themoviedb/trending-movies/${timeWindow}`, {
             params: {
                 limit: limit
             }
@@ -10,7 +10,7 @@ export default class TheMovieDbService {
     }
 
     getPopularMovies(limit = 8) {
-        return axios.get('api/themoviedb/popular-movies', {
+        return axios.get('/api/themoviedb/popular-movies', {
             params: {
                 limit: limit
             }
@@ -26,7 +26,7 @@ export default class TheMovieDbService {
     }
 
     getTrendingTvSeries(timeWindow: string, limit = 8) {
-        return axios.get(`api/themoviedb/trending-tv-series/${timeWindow}`, {
+        return axios.get(`/api/themoviedb/trending-tv-series/${timeWindow}`, {
             params: {
                 limit: limit
             }
@@ -34,7 +34,15 @@ export default class TheMovieDbService {
     }
 
     getPopularTvSeries(limit = 8) {
-        return axios.get('api/themoviedb/popular-tv-series', {
+        return axios.get('/api/themoviedb/popular-tv-series', {
+            params: {
+                limit: limit
+            }
+        });
+    }
+
+    getOnTheAirTvSeries(limit = 8) {
+        return axios.get('/api/themoviedb/on-the-air-tv-series', {
             params: {
                 limit: limit
             }

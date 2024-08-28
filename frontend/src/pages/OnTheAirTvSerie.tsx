@@ -1,30 +1,30 @@
 import TheMovieDbService from "../services/TheMovieDbService.ts";
 import {useEffect, useState} from "react";
-import {Movie} from "../types/Movie.ts";
-import CustomCard from "../layouts/CustomCard.tsx";
+import {TvSerie} from "../types/TvSerie.ts";
+import CustomTvSerieCard from "../layouts/CustomTvSerieCard.tsx";
 
 function UpcomingMovie() {
     const theMovieDbService = new TheMovieDbService();
-    const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
-    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [onTheAirTvSeries, setOnTheAirTvSeries] = useState<TvSerie[]>([]);
     const [loading, setLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
-        theMovieDbService.getUpcomingMovies(32)
+        theMovieDbService.getOnTheAirTvSeries(32)
             .then((response) => {
                 if (Array.isArray(response.data)) {
-                    setUpcomingMovies(response.data);
-                    setLoading(false);
+                    setOnTheAirTvSeries(response.data);
                     setErrorMessage('');
-                } else {
-                    setUpcomingMovies([]);
-                    setErrorMessage('Unexpected response format');
                     setLoading(false);
+                } else {
+                    setOnTheAirTvSeries([]);
+                    setLoading(false);
+                    setErrorMessage('Unexpected response format');
                 }
             })
             .catch(error => {
-                setErrorMessage(`Error while fetching movies: ${error.message}`);
                 setLoading(false);
+                setErrorMessage(`Error while fetching series: ${error.message}`);
             });
     }, []);
 
@@ -39,8 +39,8 @@ function UpcomingMovie() {
 
     return (
         <div className='py-5 text-center container'>
-            <h1>Kommende Filme</h1>
-            <CustomCard movies={upcomingMovies}/>
+            <h1>Momentan ausgestrahlte Serien</h1>
+            <CustomTvSerieCard tvSeries={onTheAirTvSeries}/>
 
             {errorMessage && (
                 <div className="alert alert-danger" role="alert">
