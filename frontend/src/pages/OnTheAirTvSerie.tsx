@@ -6,25 +6,25 @@ import CustomTvSerieCard from "../layouts/CustomTvSerieCard.tsx";
 function UpcomingMovie() {
     const theMovieDbService = new TheMovieDbService();
     const [onTheAirTvSeries, setOnTheAirTvSeries] = useState<TvSerie[]>([]);
-    const [errorMessage, setErrorMessage] = useState<string>('');
     const [loading, setLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
         theMovieDbService.getOnTheAirTvSeries(32)
             .then((response) => {
                 if (Array.isArray(response.data)) {
                     setOnTheAirTvSeries(response.data);
-                    setLoading(false);
                     setErrorMessage('');
+                    setLoading(false);
                 } else {
                     setOnTheAirTvSeries([]);
-                    setErrorMessage('Unexpected response format');
                     setLoading(false);
+                    setErrorMessage('Unexpected response format');
                 }
             })
             .catch(error => {
-                setErrorMessage(`Error while fetching series: ${error.message}`);
                 setLoading(false);
+                setErrorMessage(`Error while fetching series: ${error.message}`);
             });
     }, []);
 
