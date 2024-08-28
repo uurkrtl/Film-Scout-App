@@ -39,4 +39,9 @@ public class TheMovieDbController {
     public List<TvSerie> getPopularTvSeries(@RequestParam(defaultValue = "8") Integer limit) {
         return theMovieDbService.getPopularTvSeries(limit);
     }
+
+    @GetMapping("/on-the-air-tv-series")
+    public List<TvSerie> getOnTheAirTvSeries(@RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getOnTheAirTvSeries(limit);
+    }
 }

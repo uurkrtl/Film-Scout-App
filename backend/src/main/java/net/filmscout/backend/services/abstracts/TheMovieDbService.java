@@ -12,4 +12,5 @@ public interface TheMovieDbService {
     List<Movie> getUpcomingMovies(Integer limit);
     List<TvSerie> getTrendingTvSeries(TimeWindow timeWindow, Integer limit);
     List<TvSerie> getPopularTvSeries(Integer limit);
+    List<TvSerie> getOnTheAirTvSeries(Integer limit);
 }

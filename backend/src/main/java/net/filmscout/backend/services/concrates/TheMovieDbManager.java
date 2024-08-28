@@ -44,4 +44,10 @@ public class TheMovieDbManager implements TheMovieDbService {
         final String url = "/tv/popular?language=de-DE&page=1";
         return theMovieDbBusinessRule.fetchTvSerieList(url).stream().limit(limit).toList();
     }
+
+    @Override
+    public List<TvSerie> getOnTheAirTvSeries(Integer limit) {
+        final String url = "/tv/on_the_air?language=de-DE&page=1&timezone=DE";
+        return theMovieDbBusinessRule.fetchTvSerieList(url).stream().limit(limit).toList();
+    }
 }
