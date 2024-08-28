@@ -9,6 +9,7 @@ import java.util.List;
 public interface TheMovieDbService {
     List<Movie> getTrendingMovies(TimeWindow timeWindow, Integer limit);
     List<Movie> getPopularMovies(Integer limit);
+    List<Movie> getUpcomingMovies(Integer limit);
     List<TvSerie> getTrendingTvSeries(TimeWindow timeWindow, Integer limit);
     List<TvSerie> getPopularTvSeries(Integer limit);
 }

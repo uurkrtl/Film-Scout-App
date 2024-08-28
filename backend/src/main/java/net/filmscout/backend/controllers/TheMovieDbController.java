@@ -25,6 +25,11 @@ public class TheMovieDbController {
         return theMovieDbService.getPopularMovies(limit);
     }
 
+    @GetMapping("/upcoming-movies")
+    public List<Movie> getUpcomingMovies(@RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getUpcomingMovies(limit);
+    }
+
     @GetMapping("/trending-tv-series/{timeWindow}")
     public List<TvSerie> getTrendingTvSeries(@PathVariable String timeWindow, @RequestParam(defaultValue = "8") Integer limit) {
         return theMovieDbService.getTrendingTvSeries(TimeWindow.valueOf(timeWindow), limit);
