@@ -33,6 +33,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.0.4</springdoc-openapi-starter-webmvc-ui.version>
         <de.flapdoodle.embed.mongo.spring3x.version>4.14.0</de.flapdoodle.embed.mongo.spring3x.version>
         <modelmapper.version>3.2.0</modelmapper.version>
+        <spring-boot-starter-fallback-page.version>1.0.0</spring-boot-starter-fallback-page.version>
     </properties>
     <dependencies>
         <dependency>
@@ -80,6 +81,11 @@
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>${modelmapper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.neuefische.java</groupId>
+            <artifactId>spring-boot-starter-fallback-page</artifactId>
+            <version>${spring-boot-starter-fallback-page.version}</version>
         </dependency>
     </dependencies>
 
