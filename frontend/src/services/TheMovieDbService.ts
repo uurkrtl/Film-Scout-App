@@ -17,6 +17,14 @@ export default class TheMovieDbService {
         });
     }
 
+    getUpcomingMovies(limit = 8) {
+        return axios.get('/api/themoviedb/upcoming-movies', {
+            params: {
+                limit: limit
+            }
+        });
+    }
+
     getTrendingTvSeries(timeWindow: string, limit = 8) {
         return axios.get(`api/themoviedb/trending-tv-series/${timeWindow}`, {
             params: {

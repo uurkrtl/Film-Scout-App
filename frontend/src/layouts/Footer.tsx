@@ -22,11 +22,10 @@ function Footer() {
                 <div className="col mb-3">
                     <h5>Filme</h5>
                     <ul className="nav flex-column">
-                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Home</Link></li>
-                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Features</Link></li>
-                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Pricing</Link></li>
-                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">FAQs</Link></li>
-                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">About</Link></li>
+                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Beliebt</Link></li>
+                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Im Kino</Link></li>
+                        <li className="nav-item mb-2"><Link to='/movies/upcoming' className="nav-link p-0 text-body-secondary">Demnächst</Link></li>
+                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Bestbewertet</Link></li>
                     </ul>
                 </div>
 

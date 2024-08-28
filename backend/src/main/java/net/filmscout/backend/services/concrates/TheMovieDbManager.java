@@ -28,6 +28,12 @@ public class TheMovieDbManager implements TheMovieDbService {
     }
 
     @Override
+    public List<Movie> getUpcomingMovies(Integer limit) {
+        final String url = "/movie/upcoming?language=de-DE&page=1&region=DE";
+        return theMovieDbBusinessRule.fetchMovieList(url).stream().limit(limit).toList();
+    }
+
+    @Override
     public List<TvSerie> getTrendingTvSeries(TimeWindow timeWindow, Integer limit) {
         final String url = String.format("/trending/tv/%s?language=de-DE", timeWindow.toString().toLowerCase());
         return theMovieDbBusinessRule.fetchTvSerieList(url).stream().limit(limit).toList();

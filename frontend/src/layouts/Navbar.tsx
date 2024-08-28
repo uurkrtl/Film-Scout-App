@@ -24,7 +24,7 @@ function Navbar() {
                                 <ul className="dropdown-menu">
                                     <li><Link to='/' className="dropdown-item text-decoration-none">Beliebt</Link></li>
                                     <li><Link to='/' className="dropdown-item text-decoration-none">Im Kino</Link></li>
-                                    <li><Link to='/' className="dropdown-item text-decoration-none">Demnächst</Link></li>
+                                    <li><Link to='/movies/upcoming' className="dropdown-item text-decoration-none">Demnächst</Link></li>
                                     <li><Link to='/' className="dropdown-item text-decoration-none">Bestbewertet</Link></li>
                                 </ul>
                             </li>
