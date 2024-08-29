@@ -3,7 +3,7 @@ import HomePage from "../pages/HomePage.tsx";
 import Navbar from "./Navbar.tsx";
 import Footer from "./Footer.tsx";
 import UpcomingMovie from "../pages/UpcomingMovie.tsx";
-import OnTheAirTvSerie from "../pages/OnTheAirTvSerie.tsx";
+import AiringTodayTvSerie from "../pages/TvSeriesList.tsx";
 
 function Dashboard() {
     return (
@@ -13,7 +13,7 @@ function Dashboard() {
                 <Routes>
                     <Route path='/' element={<HomePage/>}/>
                     <Route path='/movies/upcoming' element={<UpcomingMovie/>}/>
-                    <Route path='/tv-series/on-the-air' element={<OnTheAirTvSerie/>}/>
+                    <Route path='/movie-serie/:url' element={<AiringTodayTvSerie/>}/>
                 </Routes>
             </div>
             <Footer/>

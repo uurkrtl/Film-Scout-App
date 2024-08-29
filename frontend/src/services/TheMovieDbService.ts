@@ -41,8 +41,8 @@ export default class TheMovieDbService {
         });
     }
 
-    getOnTheAirTvSeries(limit = 8) {
-        return axios.get('/api/themoviedb/on-the-air-tv-series', {
+    getResponse(url: string, limit = 8) {
+        return axios.get(`/api/themoviedb/${url}`, {
             params: {
                 limit: limit
             }
