@@ -44,4 +44,9 @@ public class TheMovieDbController {
     public List<TvSerie> getOnTheAirTvSeries(@RequestParam(defaultValue = "8") Integer limit) {
         return theMovieDbService.getOnTheAirTvSeries(limit);
     }
+
+    @GetMapping("/airing-today-tv-series")
+    public List<TvSerie> getAiringTodayTvSeries(@RequestParam(defaultValue = "8") Integer limit) {
+        return theMovieDbService.getAiringTodayTvSeries(limit);
+    }
 }

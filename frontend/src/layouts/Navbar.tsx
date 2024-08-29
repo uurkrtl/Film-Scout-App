@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
 
-
 function Navbar() {
     return (
         <header data-bs-theme="dark">
@@ -34,8 +33,8 @@ function Navbar() {
                                       data-bs-toggle="dropdown" aria-expanded="false">Serien</Link>
                                 <ul className="dropdown-menu">
                                     <li><Link to='/' className="dropdown-item text-decoration-none">Beliebt</Link></li>
-                                    <li><Link to='/' className="dropdown-item text-decoration-none">Heute im TV</Link></li>
-                                    <li><Link to='/tv-series/on-the-air' className="dropdown-item text-decoration-none">Im TV</Link></li>
+                                    <li><Link to='/movie-serie/airing-today-tv-series' className="dropdown-item text-decoration-none">Heute im TV</Link></li>
+                                    <li><Link to='/movie-serie/on-the-air-tv-series' className="dropdown-item text-decoration-none">Im TV</Link></li>
                                     <li><Link to='/' className="dropdown-item text-decoration-none">Bestbewertet</Link></li>
                                 </ul>
                             </li>

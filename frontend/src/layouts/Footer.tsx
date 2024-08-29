@@ -33,8 +33,8 @@ function Footer() {
                     <h5>Serien</h5>
                     <ul className="nav flex-column">
                         <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Beliebt</Link></li>
-                        <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Heute im TV</Link></li>
-                        <li className="nav-item mb-2"><Link to='/tv-series/on-the-air' className="nav-link p-0 text-body-secondary">Im TV</Link></li>
+                        <li className="nav-item mb-2"><Link to='/movie-serie/airing-today-tv-series' className="nav-link p-0 text-body-secondary">Heute im TV</Link></li>
+                        <li className="nav-item mb-2"><Link to='/movie-serie/on-the-air-tv-series' className="nav-link p-0 text-body-secondary">Im TV</Link></li>
                         <li className="nav-item mb-2"><Link to='/' className="nav-link p-0 text-body-secondary">Bestbewertet</Link></li>
                     </ul>
                 </div>
